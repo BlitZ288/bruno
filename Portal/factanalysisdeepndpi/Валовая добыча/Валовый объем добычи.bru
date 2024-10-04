@@ -35,7 +35,7 @@ docs {
   | years | int[] | Года | +
   | periodType | int -> FactAnalysisPeriodTypeEnum | Тип периода. FactAnalysisPeriodTypeEnum: Months = 30, Quarter = 31,  HalfYear = 32 |
   | periods | int[] -> FactAnalysisPeriod[] | Периоды ФА| +
-  | typeTab | int -> FactAnalysisDeepNdpiTabTypeEnum | Вкладка УВС/Иные| +
+  | tabType | int -> FactAnalysisDeepNdpiTabTypeEnum | Вкладка УВС/Иные| +
   
   ```
   FactAnalysisPeriodTypeEnum :
@@ -132,20 +132,20 @@ docs {
   }
   ```
   
-  #### Пример ответа
+  #### Пример ответа для УВС
   
   Http Response Content
   ```
   [
     {
-      "id": 1080,
-      "rowId": "1080",
-      "parent": 1078,
+      "id": 1827,
+      "rowId": "0",
+      "parent": 1826,
       "orderNumberNp": 0,
       "nn": 0,
-      "name": "Количество добытых за период нефти и газового конденсата (Vнк) (тонны) по всем участкам недр",
+      "name": "Нефть",
       "scale": 1,
-      "unit": "тонн",
+      "unit": "",
       "format": "-",
       "values": [
         {
@@ -163,14 +163,14 @@ docs {
       ]
     },
     {
-      "id": 1083,
-      "rowId": "1083",
-      "parent": 1078,
+      "id": 1829,
+      "rowId": "0",
+      "parent": 1826,
       "orderNumberNp": 0,
       "nn": 0,
-      "name": "Количество добытого газа природного за период по всем участкам недр (Vгаз) (тыс. м3)",
+      "name": "Газ горючий природный",
       "scale": 1,
-      "unit": "тыс.куб.м.",
+      "unit": "",
       "format": "0",
       "values": [
         {
@@ -188,12 +188,145 @@ docs {
       ]
     },
     {
-      "id": 1085,
-      "rowId": "1085",
-      "parent": 1078,
+      "id": 1831,
+      "rowId": "0",
+      "parent": 1826,
       "orderNumberNp": 0,
       "nn": 0,
-      "name": "Количество добытого попутного газа за период по всем участкам недр (тыс. м3)",
+      "name": "Газовый конденсат",
+      "scale": 1,
+      "unit": "тыс.куб.м.",
+      "format": "0",
+      "values": [
+        {
+          "period": 1,
+          "value": 3342477.94,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 5937578.24,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    }
+  ]
+  ```
+  
+  #### Пример ответа для ИПИ
+  
+  Http Response Content
+  ```
+  [
+    {
+      "id": 1834,
+      "rowId": "0",
+      "parent": 1833,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Концентраты и другие полупродукты, содержащие золото ",
+      "scale": 1,
+      "unit": "",
+      "format": "-",
+      "values": [
+        {
+          "period": 1,
+          "value": 30572461.93,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 34281956.24,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    },
+    {
+      "id": 1836,
+      "rowId": "0",
+      "parent": 1833,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Железная руда (за исключением окисленных железистых кварцитов)",
+      "scale": 1,
+      "unit": "",
+      "format": "-",
+      "values": [
+        {
+          "period": 1,
+          "value": 30572461.93,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 34281956.24,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    },
+    {
+      "id": 1838,
+      "rowId": "0",
+      "parent": 1833,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Многокомпонентные комплексные руды, а также полезные компоненты многокомпонентной комплексной руды",
+      "scale": 1,
+      "unit": "",
+      "format": "-",
+      "values": [
+        {
+          "period": 1,
+          "value": 30572461.93,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 34281956.24,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    },
+    {
+      "id": 1840,
+      "rowId": "0",
+      "parent": 1833,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Многокомпонентные комплексные руды, содержащие медь, никель или металлы платиновой группы, добываемые на территории Красноярского края",
+      "scale": 1,
+      "unit": "",
+      "format": "0",
+      "values": [
+        {
+          "period": 1,
+          "value": 238673.01,
+          "delta": null,
+          "percent": null
+        },
+        {
+          "period": 2,
+          "value": 335812.23,
+          "delta": null,
+          "percent": null
+        }
+      ]
+    },
+    {
+      "id": 1842,
+      "rowId": "0",
+      "parent": 1833,
+      "orderNumberNp": 0,
+      "nn": 0,
+      "name": "Природные алмазы",
       "scale": 1,
       "unit": "тыс.куб.м.",
       "format": "0",

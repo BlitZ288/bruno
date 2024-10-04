@@ -35,7 +35,7 @@ docs {
   | years | int[] | Года | +
   | periodType | int -> FactAnalysisPeriodTypeEnum | Тип периода. FactAnalysisPeriodTypeEnum: Months = 30, Quarter = 31,  HalfYear = 32 |
   | periods | int[] -> FactAnalysisPeriod[] | Периоды ФА| +
-  | typeTab | int -> FactAnalysisDeepNdpiTabTypeEnum | Вкладка УВС/Иные| +
+  | tabType | int -> FactAnalysisDeepNdpiTabTypeEnum | Вкладка УВС/Иные| +
   
   ```
   FactAnalysisPeriodTypeEnum :
@@ -148,6 +148,56 @@ docs {
           "orderNumberNp": 0,
           "nn": 0.0,
           "name": "Добыча нефти по участкам недр (раздел 2): сумма налога",
+          "scale": 0,
+          "unit": null,
+          "format": null,
+          "values": [
+              {
+                  "period": 1,
+                  "value": 636988012184.00,
+                  "delta": null,
+                  "percent": null
+              },
+              {
+                  "period": 2,
+                  "value": 0.0,
+                  "delta": null,
+                  "percent": null
+              }
+          ]
+      },
+  	{
+          "id": 1779.0,
+          "rowId": "0",
+          "parent": 1778.0,
+          "orderNumberNp": 0,
+          "nn": 0.0,
+          "name": "Нефть обессоленная, обезвоженная и стабилизированная, за исключением нефти, в отношении которой исчисляется налог на дополнительный доход от добычи углеводородного сырья",
+          "scale": 0,
+          "unit": null,
+          "format": null,
+          "values": [
+              {
+                  "period": 1,
+                  "value": 636988012184.00,
+                  "delta": null,
+                  "percent": null
+              },
+              {
+                  "period": 2,
+                  "value": 0.0,
+                  "delta": null,
+                  "percent": null
+              }
+          ]
+      },
+  	{
+          "id": 1784.0,
+          "rowId": "0",
+          "parent": 1779.0,
+          "orderNumberNp": 0,
+          "nn": 0.0,
+          "name": "Нефть обессоленная, обезвоженная и стабилизированная, в отношении которой исчисляется налог на дополнительный доход от добычи углеводородного сырья (раздел 8)",
           "scale": 0,
           "unit": null,
           "format": null,

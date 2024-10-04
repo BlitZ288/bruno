@@ -1,0 +1,187 @@
+meta {
+  name: Получение КАБДТ и КМАН
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{portalBaseUrl}}/macrofactanalysis/api/v1/macro-kabdt-kman
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "years" : [2022, 2023]
+  }
+}
+
+docs {
+  ## Метод получения КАБДТ и КМАН
+  
+  ### Http Request
+  **URL** `POST /api/v1/macro-kabdt-kman`
+   
+  **Body (json)**
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | years | int[] | Годы | +
+  
+  #### Http Response
+  
+  ***Response Model***
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | year | int | Год, в который указываются данные| +
+  | values | KabdtKmanValueViewModel | Показатели КАБДТ и КМАН | +
+  | month | int | Месяц года (1-12) | +
+  | kabdt | decimal | Коэффициент КАБДТ | +
+  | kman | decimal | Коэффициент КМАН | +
+  
+  #### Пример запроса
+  
+  POST `/macrofactanalysis/api/v1/macro-kabdt-kman`
+  
+  Http Request Body
+  ```
+  {
+    "years" : [2022, 2023],
+    "periods": [
+      7
+    ]
+  }
+  ```
+  
+  #### Пример ответа
+  
+  Http Response Content
+  ```
+  [
+      {
+          "year": 2022,
+          "values": [
+              {
+                  "month": 1,
+                  "kabdt": 857.0,
+                  "kman": 7101.2042
+              },
+              {
+                  "month": 2,
+                  "kabdt": 1103.0,
+                  "kman": 7403.5988
+              },
+              {
+                  "month": 3,
+                  "kabdt": 2510.0,
+                  "kman": 12169.6813
+              },
+              {
+                  "month": 4,
+                  "kabdt": 1595.0,
+                  "kman": 9546.7123
+              },
+              {
+                  "month": 5,
+                  "kabdt": 1397.0,
+                  "kman": 6446.3738
+              },
+              {
+                  "month": 6,
+                  "kabdt": 1400.0,
+                  "kman": 5149.1834
+              },
+              {
+                  "month": 7,
+                  "kabdt": 981.0,
+                  "kman": 6438.6504
+              },
+              {
+                  "month": 8,
+                  "kabdt": 820.0,
+                  "kman": 6412.6083
+              },
+              {
+                  "month": 9,
+                  "kabdt": 657.0,
+                  "kman": 6234.3381
+              },
+              {
+                  "month": 10,
+                  "kabdt": 803.0,
+                  "kman": 5423.3799
+              },
+              {
+                  "month": 11,
+                  "kabdt": 676.0,
+                  "kman": 5205.6498
+              },
+              {
+                  "month": 12,
+                  "kabdt": 414.0,
+                  "kman": 5682.9887
+              }
+          ]
+      },
+      {
+          "year": 2023,
+          "values": [
+              {
+                  "month": 1,
+                  "kabdt": 1475.0,
+                  "kman": 5784.3685
+              },
+              {
+                  "month": 2,
+                  "kabdt": 1387.0,
+                  "kman": 4678.0313
+              },
+              {
+                  "month": 3,
+                  "kabdt": 1424.0,
+                  "kman": 5387.2126
+              },
+              {
+                  "month": 4,
+                  "kabdt": 1459.0,
+                  "kman": 5774.9189
+              },
+              {
+                  "month": 5,
+                  "kabdt": 1151.0,
+                  "kman": 5682.2414
+              },
+              {
+                  "month": 6,
+                  "kabdt": 1487.0,
+                  "kman": 6719.5243
+              },
+              {
+                  "month": 7,
+                  "kabdt": 2272.0,
+                  "kman": 7072.6444
+              },
+              {
+                  "month": 8,
+                  "kabdt": 3291.0,
+                  "kman": 8056.2737
+              },
+              {
+                  "month": 9,
+                  "kabdt": 221.0,
+                  "kman": 10337.6701
+              },
+              {
+                  "month": 10,
+                  "kabdt": 221.0,
+                  "kman": 11567.3912
+              },
+              {
+                  "month": 11,
+                  "kabdt": 221.0,
+                  "kman": 11840.1399
+              }
+          ]
+      }
+  ]
+  ```
+}
