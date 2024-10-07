@@ -5,7 +5,98 @@ meta {
 }
 
 post {
-  url: 
-  body: none
+  url: {{portalBaseUrl}}/factanalysisdeepndpi/api/v1/available-period-types
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "years" : [2022, 2023]
+  }
+}
+
+docs {
+  ## Получить доступные типы периодов относительно год/годов
+  
+  ### Http Request
+  **URL** `POST /api/v1/available-period-types`
+   
+  **Body (json)**
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | years | int[] | Года | +
+  
+  #### Http Response
+  
+  ***Response Model***
+  
+  Возвращается массив доступных периодов для выборки
+  
+  FactAnalysisPeriod : 
+  {
+  
+          FirstQuarter = 1,
+          SecondQuarter = 2,
+          ThirdQuarter = 3,
+          ForthQuarter = 4,
+          FirstHalfYear = 5,
+          SecondHalfYear = 6,
+          Year = 7,
+          Months = 8,
+          January = 9,
+          February = 10,
+          March = 11,
+          April = 12,
+          May = 13,
+          June = 14,
+          July = 15,
+          August = 16,
+          September = 17,
+          October = 18,
+          November = 19,
+          December = 20
+  }
+  
+  FactAnalysisPeriodTypeEnum :
+  {
+          /// <summary>
+          /// Месяца.
+          /// </summary>
+          Months = 30,
+  
+          /// <summary>
+          /// Квартал.
+          /// </summary>
+          Quarter = 31,
+  
+          /// <summary>
+          /// Полугодие.
+          /// </summary>
+          HalfYear = 32,
+  }
+  
+  #### Пример запроса
+  
+  POST `/factanalysisdeepndpi/api/v1/available-period-types`
+  
+  Http Request Body
+  ```
+  {
+    "years" : [2022, 2023]
+  }
+  ```
+  
+  #### Пример ответа
+  
+  Http Response Content
+  ```
+  [
+      30,
+      31,
+      32,
+      8,
+      7
+  ]
+  ```
 }

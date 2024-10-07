@@ -5,7 +5,102 @@ meta {
 }
 
 post {
-  url: 
-  body: none
+  url: {{portalBaseUrl}}/factanalysisdeepndpi/api/v1/available-periods
+  body: json
   auth: none
+}
+
+body:json {
+  {
+      "years": [2022, 2023],
+      "periodType": 31
+  }
+}
+
+docs {
+  ## Получение доступных для выборки периодов, для которых есть данные
+  
+  ### Http Request
+  **URL** `POST /api/v1/available-periods`
+   
+  **Body (json)**
+  | Наименование | Тип | Описание | Обязательность
+  | -----------  | ----------- | ----------- | ----------- |
+  | years | int[] | Года | +
+  | periodType | int -> FactAnalysisPeriodTypeEnum | Тип периода. FactAnalysisPeriodTypeEnum: Months = 30, Quarter = 31,  HalfYear = 32 |
+  
+  ```
+  FactAnalysisPeriodTypeEnum :
+  {
+          /// <summary>
+          /// Месяца.
+          /// </summary>
+          Months = 30,
+  
+          /// <summary>
+          /// Квартал.
+          /// </summary>
+          Quarter = 31,
+  
+          /// <summary>
+          /// Полугодие.
+          /// </summary>
+          HalfYear = 32,
+  }
+  ```
+  ```
+  FactAnalysisPeriod : 
+  {
+  
+          FirstQuarter = 1,
+          SecondQuarter = 2,
+          ThirdQuarter = 3,
+          ForthQuarter = 4,
+          FirstHalfYear = 5,
+          SecondHalfYear = 6,
+          Year = 7,
+          Months = 8,
+          January = 9,
+          February = 10,
+          March = 11,
+          April = 12,
+          May = 13,
+          June = 14,
+          July = 15,
+          August = 16,
+          September = 17,
+          October = 18,
+          November = 19,
+          December = 20
+  }
+  ```
+  #### Http Response
+  
+  ***Response Model***
+  
+  Возвращается список доступных FactAnalysisPeriod.
+  
+  #### Пример запроса
+  
+  POST `/factanalysisdeepndpi/api/v1/available-periods`
+  
+  Http Request Body
+  ```
+  {
+      "years": [2022, 2023],
+      "periodType": 31
+  }
+  ```
+  
+  #### Пример ответа
+  
+  Http Response Content
+  ```
+  [
+      1,
+      2,
+      3,
+      4
+  ]
+  ```
 }
