@@ -1,0 +1,57 @@
+meta {
+  name: Получение доступных годов
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{portalBaseUrl}}/factanalysisdeepndpi/api/v1/available-years
+  body: json
+  auth: none
+}
+
+body:json {
+  {}
+}
+
+docs {
+  ## Получить доступные года для выборки
+  
+  ### Http Request
+  **URL** `POST /api/v1/available-years`
+   
+  **Body (json)**
+  {}
+  
+  #### Http Response
+  
+  ***Response Model***
+  
+  Возвращается массив доступных годов для выборки
+  
+  
+  #### Пример запроса
+  
+  POST `/factanalysisdeepndpi/api/v1/available-years`
+  
+  Http Request Body
+  ```
+  {}
+  ```
+  
+  #### Пример ответа
+  
+  Http Response Content
+  ```
+  [
+    2017,
+    2018,  
+    2019,  
+    2020,  
+    2021,  
+    2022,  
+    2023,  
+    2024,
+  ]
+  ```
+}
